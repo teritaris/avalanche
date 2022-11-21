@@ -1,8 +1,10 @@
 import Avalanche, { BinTools, Buffer, BN } from "avalanche"
+import {HealthAPI} from "avalanche/dist/apis/health";
+import {HealthResponse} from "avalanche/dist/apis/health/interfaces";
 
 const bintools = BinTools.getInstance();
 const myNetworkID = 43113 //default is 1, we want to override that for our local network
-const avalanche = new Avalanche("api.avax-test.network", 443, "https", myNetworkID);
+const avalanche = new Avalanche("4th.vps.deroris.net", 9650, "http", myNetworkID);
 
 
 (async ()=> {
