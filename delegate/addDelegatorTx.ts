@@ -23,6 +23,7 @@ import {
     NodeIDStringToBuffer,
     UnixNow
 } from "avalanche/dist/utils"
+import {web3} from "@avalabs/avalanche-wallet-sdk";
 
 const ip: string = "4th.vps.deroris.net"
 const port: number = 9650
@@ -126,13 +127,14 @@ const main = async (): Promise<any> => {
     )
 
     const unsignedTx: UnsignedTx = new UnsignedTx(addDelegatorTx)
-    console.dir(unsignedTx)
+    console.dir(unsignedTx.serialize())
     const tx: Tx = unsignedTx.sign(pKeychain)
     // console.dir(tx, { depth: null })
     console.dir(tx)
 
     const txid: string = await pchain.issueTx(tx)
     console.log(`Success! TXID: ${txid}`)
+
 }
 
 main()
